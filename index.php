@@ -1,3 +1,6 @@
+
+<?php session_start();
+ include('db.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +23,8 @@
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- <link href="assets/vendor/bootstrap_2/bootstrap_responsive.min.css" rel="stylesheet"> -->
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
@@ -36,7 +41,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-         <img src="assets/img/logo.png" alt=""> 
+         <!-- <img src="assets/img/logo.png" alt="">  -->
         <h1>Attendance Report Generater<span>.</span></h1>
       </a>
       <nav id="navbar" class="navbar">
@@ -76,10 +81,13 @@
               include('students_form.php');
              }
              else if($info=="admin_login"){
-              include('admin/admin_login.php');
+              include('admin_login.php');
              }
              else if($info=="staff_login"){
-              include('staff/staff_login.php');
+              include('staff_login.php');
+             }
+             else if($info=="staff_register"){
+              include('staff_register.php');
              }
 
             }
