@@ -55,7 +55,7 @@ header('location:../index.php');
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.php">Home</a></li>
-          <li><a href="index.php?info=academic_year">Academic Year</a></li>
+          <!-- <li><a href="index.php?info=academic_year">Academic Year</a></li> -->
           <li><a href="index.php?info=staffs">Staffs</a></li>
           <li><a href="index.php?info=classes">Class & students</a></li>
           <!-- <li class="dropdown"><a href="#"><span>records</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -64,7 +64,7 @@ header('location:../index.php');
               <li><a href="index.php?info=staff_login">Staff login</a></li>
             </ul>
           </li> -->
-          <li><div class="btn btn-danger btn-sm">LogOut</div></li>
+          <li><div class="btn btn-danger btn-sm"><a href="index.php?info=logout">LogOut</a></div></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -94,9 +94,9 @@ header('location:../index.php');
             //  else if($info=="staff_login"){
             //   include('staff_login.php');
             //  }
-            //  else if($info=="staff_register"){
-            //   include('staff_register.php');
-            //  }
+              else if($info=="logout"){
+               include('logout.php');
+              }
 
             }
             if($info==""){
@@ -149,6 +149,7 @@ header('location:../index.php');
   <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>

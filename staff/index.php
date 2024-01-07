@@ -55,14 +55,16 @@ this is staff id <?php echo $_SESSION['email']?>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.php">Home</a></li>
-          <li><a href="index.php?info=staff_classes">Class & students</a></li>
+          <li><a href="index.php?info=attendance">Attendance</a></li>
+          <li><a href="index.php?info=staff_classes">Class</a></li>
+          <li><a href="index.php?info=students">Students</a></li>
           <!-- <li class="dropdown"><a href="#"><span>records</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="index.php?info=admin_login">Admin login</a></li>
               <li><a href="index.php?info=staff_login">Staff login</a></li>
             </ul>
           </li> -->
-          <li><div class="btn btn-danger btn-sm">LogOut</div></li>
+          <li><div class="btn btn-danger btn-sm"><a href="index.php?info=logout">LogOut</a></div></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -80,21 +82,25 @@ this is staff id <?php echo $_SESSION['email']?>
 						 {
 						 include('staff_class.php');
 						 }
-            //  else if($info=="staffs"){
-            //   include('staff.php');
-            //  }
-            //  else if($info=="classes"){
-            //   include('class.php');
-            //  }
-            //  else if($info=="admin_login"){
-            //   include('admin_login.php');
-            //  }
-            //  else if($info=="staff_login"){
-            //   include('staff_login.php');
-            //  }
-            //  else if($info=="staff_register"){
-            //   include('staff_register.php');
-            //  }
+              else if($info=="students"){
+               include('staff_student.php');
+              }
+              else if($info=="staff_add_students"){
+               include('staff_add_student.php');
+              }
+              else if($info=="staff_edit_students"){
+               include('staff_edit_student.php');
+              }
+              else if($info=="staff_student_attendance"){
+               include('staff_student_attendance.php');
+              }
+              else if($info=="attendance"){
+                include('attendance.php');
+               }
+              else if($info=="logout"){
+               include('logout.php');
+              }
+              
 
             }
             if($info==""){
@@ -103,7 +109,7 @@ this is staff id <?php echo $_SESSION['email']?>
       <div class="container" data-aos="fade-up">
         <div class="section-header">
             <h2>Home</h2>
-        </div> 
+        </div>
       </div>
 
 </section>
@@ -114,7 +120,7 @@ this is staff id <?php echo $_SESSION['email']?>
  
 
   <main id="main">
-
+               
    
 
   </main>
@@ -147,6 +153,7 @@ this is staff id <?php echo $_SESSION['email']?>
   <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>

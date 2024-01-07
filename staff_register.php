@@ -34,7 +34,7 @@
         $result = mysqli_query($con,$insert_staff);
         if($result){
           echo "successfully run the results";
-          @$info='staff_login';
+          header("location:index.php?info=staff_login");
         }
         
         

@@ -63,8 +63,11 @@ if(isset($result)){
     ?>
     <td><?php echo "$staff_row[name]";?></td>
     <td><?php echo "$class_row[semester]";?></td>
-    <td>view students</td>
-    <td>edit and delete</td>
+    <td><div class="btn btn-info btn-sm">View Students</div></td>
+    <td>
+     <div class="btn btn-info dtn-md">Edit</div> 
+     <div class="btn btn-danger btn-md">Delete</div>
+     </td>
   </tr>
   <?php
   $i++;

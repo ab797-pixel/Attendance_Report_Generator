@@ -1,3 +1,18 @@
+<?php
+@$staff_delete_id = $_GET['delete_id'];
+if(isset($staff_delete_id)){
+  $delete_query = mysqli_query($con,"delete from staffs where id='$staff_delete_id'");
+  if(isset($delete_query)){
+  echo "<div class='alert alert-success alert-dismissible' role='alert'>
+ DELETE SUCCESSFULLY!
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+      <span aria-hidden='true'>&times;</span>
+  </button>
+  </div>";
+  }
+}
+
+?>
 <section id="admin_staff" class="admin_staff sections-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -9,6 +24,7 @@
     <th>Staff name</th>
     <th>Alias</th>
     <th>Email</th>
+    <th>Report</th>
     <th>Action</th>
   </tr>
   <?php
@@ -22,7 +38,12 @@
     <td><?php echo "$staff_row[name]";?></td>
     <td><?php echo "$staff_row[alias]";?></td>
     <td><?php echo "$staff_row[email]";?></td>
-    <td>delete</td>
+    <td>
+      <div class="btn btn-success btn-md" onclick="staff_report()">Report</div>
+    </td>
+    <td>
+    <div class="btn btn-danger btn-md"><a style="color:black;" href="index.php?info=staffs&delete_id=<?php echo $staff_row['id']?>">Delete</a></div>
+    </td>
   </tr>
   <?php
   $i++;
@@ -32,3 +53,8 @@
       </div>
 
 </section>
+<script>
+  function staff_report(){
+    alert("UPCOMING EVENT");
+  }
+</script>
