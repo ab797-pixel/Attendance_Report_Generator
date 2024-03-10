@@ -1,14 +1,26 @@
 <?php
+@$delete_id = $_GET['delete_id'];
+if(isset($delete_id)){
+  $delete_row = mysqli_query($con,"delete from classes where id ='$delete_id'");
+  if(isset($delete_row)){
+    echo "<div class='alert alert-success alert-dismissible' role='alert'>
+    DELETE DATA SUCCESSUFULLY
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span>
+    </button>
+    </div>";
+  }
+}
 extract($_POST);
 if(isset($save)){
-  echo "id = 1"."<br>";
-  echo "name =".$name."<br>";
-  echo "incharge_staff_id =".$Incharge_staff_id."<br>";
-  echo "department_name =".$department_name."<br>";
-  echo "semester =".$semester."<br>";
-  echo "academic year =".$academic_year."<br>";
-  echo "is_available=0"."<br>";
-  echo "students total = 0"."<br>";
+  // echo "id = 1"."<br>";
+  // echo "name =".$name."<br>";
+  // echo "incharge_staff_id =".$Incharge_staff_id."<br>";
+  // echo "department_name =".$department_name."<br>";
+  // echo "semester =".$semester."<br>";
+  // echo "academic year =".$academic_year."<br>";
+  // echo "is_available=0"."<br>";
+  // echo "students total = 0"."<br>";
 $insert_query = "insert into classes values('','$name','$Incharge_staff_id','$department_name','$semester','$academic_year','0','0')";
 $result = mysqli_query($con,$insert_query);
 if(isset($result)){
@@ -63,10 +75,10 @@ if(isset($result)){
     ?>
     <td><?php echo "$staff_row[name]";?></td>
     <td><?php echo "$class_row[semester]";?></td>
-    <td><div class="btn btn-info btn-sm">View Students</div></td>
+    <td><div class="btn btn-info btn-sm"><a href="index.php?info=students&class_id=<?php echo $class_row['id']?>&class_name=<?php echo $class_row['name']?>" style="color:black;">View Students</a></div></td>
     <td>
-     <div class="btn btn-info dtn-md">Edit</div> 
-     <div class="btn btn-danger btn-md">Delete</div>
+     <div class="btn btn-info dtn-md"><a href="index.php?info=admin_edit_class&class_id=<?php echo $class_row['id']?>" style="color:black;">Edit</a></div> 
+     <div class="btn btn-danger btn-md"><a href="index.php?info=classes&delete_id=<?php echo $class_row['id'];?>" style="color:black;">Delete</a></div>
      </td>
   </tr>
   <?php
@@ -83,7 +95,7 @@ if(isset($result)){
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Add Staff</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Add Class Details</h5>
         <?php echo @$err;?>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>

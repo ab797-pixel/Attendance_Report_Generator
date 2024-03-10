@@ -18,7 +18,7 @@ if(isset($staff_delete_id)){
         <div class="section-header">
             <h2>staff</h2>
         </div> 
-<table class='table table-responsive table-bordered table-striped table-hover' style=margin:15px;>
+<table class='table table-bordered table-striped table-hover table-responsive' style=margin:15px;>
   <tr>
     <th>S.No</th>
     <th>Staff name</th>
@@ -39,7 +39,7 @@ if(isset($staff_delete_id)){
     <td><?php echo "$staff_row[alias]";?></td>
     <td><?php echo "$staff_row[email]";?></td>
     <td>
-      <div class="btn btn-success btn-md" onclick="staff_report()">Report</div>
+      <a class="btn btn-success btn-md"  href="index.php?info=staff_report&staff_id=<?php echo $staff_row['id']?>">Report</a>
     </td>
     <td>
     <div class="btn btn-danger btn-md"><a style="color:black;" href="index.php?info=staffs&delete_id=<?php echo $staff_row['id']?>">Delete</a></div>

@@ -30,6 +30,7 @@ if(isset($save)){
     <th>Name</th>
     <th>Semester</th>
     <th>Add Students</th>
+    <th>Report</th>
     <th>Action</th>
   </tr>
   <?php
@@ -52,13 +53,15 @@ if(isset($save)){
     <td><?php echo $class_row['name'];?></td>
     <td><?php echo $class_row['semester'];?></td>
     <td>
-      <!-- <button type="button" name="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStaff">
-           Add students
-         </button> -->
          <a href="index.php?info=staff_add_students&class_id=<?php echo $class_row['id']?>">  Add students</a>
         </td>
-    <td>
-      <div class="btn btn-danger btn-lg" onclick="change_color()">Open Attendance</div>
+    
+      <td><a href="index.php?info=report&class_id=<?php echo $class_row['id']?>" class="btn btn-info btn-md">REPORT</a>
+  <td>
+      <?php
+       $class_id = $class_row['id'];
+      ?>
+      <div class="btn btn-success btn-lg"  id="<?php echo $class_id;?>" onclick="open_attendance('<?php echo $class_id;?>')">Open Attendance</div>
     </td>
   </tr>
   
@@ -76,7 +79,60 @@ if(isset($save)){
 
 </section>
 <script>
-   function change_color(){
-     alert("add AJAX  and Jquery");
-   }
+       $(document).ready(function(){
+        $.ajax({
+        url:'getdata.php',
+        type:"get",
+        datatype:'json',
+        success: function(res){
+          console.log(res);
+  
+            res = res.split(',');
+           num = res.length;
+          for(var i = 0;i < num ; i++){  
+            res1 = res[i].replace(/]]/g,'').replace(/]/g,'').replace(/\[/g,'').replace(/\"/g,'');
+            $("#"+res1).attr("onclick","close_attendance("+res1+")").html("Close Attendance").css({'background-color':'red'});
+          
+          }
+        },
+        error: function(res){
+          console.log("error on data");
+        },
+ });
+       });
+function open_attendance(class_id){
+  $("#"+class_id).removeAttr("onclick");
+ $.ajax({
+        url:'open_available.php',
+        type:"post",
+        data:   { 
+            "class_id":class_id
+        },
+        datatype:'json',
+        success: function(res){
+          $("#"+class_id).attr("onclick","close_attendance("+class_id+")").html("Close Attendance").css({'background-color':'red'});
+        },
+        error: function(res){
+          console.log("error on data");
+        },
+ });
+}
+function close_attendance(class_id){
+  $("#"+class_id).removeAttr("onclick");
+ $.ajax({
+        url:'close_available.php',
+        type:"post",
+        data:   { 
+            "class_id":class_id
+        },
+        datatype:'json',
+        success: function(res){
+          //console.log('this is close attendance');
+          $("#"+class_id).attr("onclick","open_attendance("+class_id+")").html("Open Attendance").css({'background-color':'green'});
+        },
+        error: function(res){
+          console.log("error on data");
+        },
+ });
+}
 </script>

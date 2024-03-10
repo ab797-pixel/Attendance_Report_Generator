@@ -1,11 +1,11 @@
 <?php
 session_start();
 //the isset function to check username is already loged in and stored on the session
-if(!isset($_SESSION['id'])){
+if(!isset($_SESSION['reg.no'])){
 header('location:../index.php');	
 }
 ?>
- this is admin login id is <?php echo $_SESSION['id']?>
+
 
 <?php 
  include('../db.php'); ?>
@@ -16,7 +16,7 @@ header('location:../index.php');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Admin!</title>
+  <title>students</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -50,20 +50,10 @@ header('location:../index.php');
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
          <!-- <img src="assets/img/logo.png" alt="">  -->
-        <h1>Admin<span>.</span></h1>
+        <h1>Students<span>.</span></h1>
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.php">Home</a></li>
-          <!-- <li><a href="index.php?info=academic_year">Academic Year</a></li> -->
-          <li><a href="index.php?info=staffs">Staffs</a></li>
-          <li><a href="index.php?info=classes">Class & students</a></li>
-          <!-- <li class="dropdown"><a href="#"><span>records</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="index.php?info=admin_login">Admin login</a></li>
-              <li><a href="index.php?info=staff_login">Staff login</a></li>
-            </ul>
-          </li> -->
           <li><div class="btn btn-danger btn-sm"><a href="index.php?info=logout">LogOut</a></div></li>
         </ul>
       </nav><!-- .navbar -->
@@ -73,49 +63,46 @@ header('location:../index.php');
 
     </div>
   </header>
-  <?php 
-					@$info=$_GET['info'];
-					if($info!="")
-					{
-											
-						 if($info=="academic_year")
-						 {
-						 include('admin_academic_year.php');
-						 }
-             else if($info=="staffs"){
-              include('admin_staff.php');
-             }
-             else if($info=="classes"){
-              include('admin_class.php');
-             }
-             else if($info=="admin_edit_class"){
-              include('admin_edit_class.php');
-             }
-             else if($info=="students"){
-              include('admin_students.php');
-             }
-             else if($info=="staff_report"){
-              include('staff_report.php');
-             }
-              else if($info=="logout"){
-               include('logout.php');
-              }
+   
+  <?php
+        $reg_no = $_SESSION['reg.no'];
+        $retrieve_students = mysqli_query($con,"select * from students where register_no = '$reg_no'");
+        $student_row = mysqli_fetch_array($retrieve_students);
+        ?>
 
-            }
-            if($info==""){
-            ?>
 <section id="admin_home" class="admin_home sections-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-            <h2>Home</h2>
-        </div> 
+            <h2>Report</h2>
+            <table class='table table-bordered table-striped table-hover table-responsive' style=margin:15px;>
+             <tr>
+                <th>NAME</th>
+                <td> <?php echo $student_row['name'];?></td>
+             </tr>
+             <tr>
+                <th>ROLL NUMBER</th> <td><?php echo $student_row['roll_no'];?></td>
+             </tr>
+             <tr>
+                <th>REGISTER NUMBER</th> <td><?php echo $student_row['register_no'];?></td>
+             </tr>
+             <tr>
+                <th>TOTAL WORKING DAY</th> <td> 120</td>
+             </tr>
+             <tr>
+                <th>PRESENT OF CLASS</th> <td>96</td>
+             </tr>
+             <tr>
+                <th>PERCENTAGE</th> <td>80%₹</td>
+             </tr>
+
+        </table>
+        </div>
+       
       </div>
 
 </section>
 
-  <?php
-            }
-?>
+ 
  
 
   <main id="main">

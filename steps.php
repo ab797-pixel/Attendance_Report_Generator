@@ -13,7 +13,7 @@
               <div class="icon">
                 <i class="bi bi-activity"></i>
               </div>
-              <h3>1)Add academic year</h3>
+              <h3>1)Registeration of Staff</h3>
               <p>Admin can only add academic year each year</p>
               <a href="index.php?info=admin_login" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
@@ -24,7 +24,7 @@
               <div class="icon">
                 <i class="bi bi-broadcast"></i>
               </div>
-              <h3>2)Registraction of staffs</h3>
+              <h3>2)Add class with incharge</h3>
               <p>Staffs can be register himself and maintain their email id and password.</p>
               <a href="index.php?info=staff_login" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>

@@ -35,12 +35,8 @@
         if($result){
           echo "successfully run the results";
           header("location:index.php?info=staff_login");
-        }
-        
-        
-       
+        }      
   }
-
 ?>
 <section id="staff_login" class="staff_login sections-bg">
     <div class="container" data-aos="fade-up">

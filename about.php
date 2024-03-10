@@ -23,7 +23,6 @@
               <ul>
                 <li><i class="bi bi-check-circle-fill"></i>It  can genarates reports both students and staffs. </li>
                 <li><i class="bi bi-check-circle-fill"></i> It's helps to improve the performance througe this report..</li>
-                <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
               </ul>
               <p>
                 Automatic report generation is one of key factors of Attendance report generate softaware and it is provide high accurancy of stdents attendance report,students able to increase their performance and obedients.
