@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2024 at 02:46 PM
+-- Generation Time: Mar 10, 2024 at 09:02 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -67,7 +67,9 @@ INSERT INTO `attendance` (`id`, `class_id`, `student_register_no`, `attendance`,
 (3, 9, 'P22270805', 0, '2024-02-03', 'I', '(10:00-10:55)'),
 (4, 9, 'P22270807', 0, '2024-02-03', 'I', '(10:00-10:55)'),
 (5, 9, 'P22270807', 0, '2024-02-03', 'I', '(10:00-10:55)'),
-(6, 9, 'P22270811', 0, '2024-02-03', 'I', '(10:00-10:55)');
+(6, 9, 'P22270811', 0, '2024-02-03', 'I', '(10:00-10:55)'),
+(7, 9, 'P22270801', 0, '2024-02-06', 'I', '(10:00-10:55)'),
+(8, 9, 'P22270802', 0, '2024-02-06', 'I', '(10:00-10:55)');
 
 -- --------------------------------------------------------
 
@@ -104,7 +106,11 @@ INSERT INTO `attendance_register` (`id`, `date`, `month`, `year`, `staff_id`, `c
 (11, 3, 2, 2024, 18, 11, 1, 0),
 (12, 3, 2, 2024, 18, 9, 1, 0),
 (13, 3, 2, 2024, 18, 13, 1, 0),
-(14, 3, 2, 2024, 18, 12, 1, 1);
+(14, 3, 2, 2024, 18, 12, 1, 1),
+(15, 6, 2, 2024, 18, 14, 1, 1),
+(16, 6, 2, 2024, 18, 9, 1, 1),
+(17, 6, 2, 2024, 18, 9, 1, 1),
+(18, 18, 2, 2024, 18, 9, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -129,9 +135,9 @@ CREATE TABLE `classes` (
 
 INSERT INTO `classes` (`id`, `name`, `incharge_staff_id`, `department_name`, `semester`, `academic_year`, `is_available`, `no_of_students`) VALUES
 (9, 'II MSC COMPUTER SCIENCE', 18, 'CS', 'IV', '2023-2024', 1, 0),
-(11, 'I MSC COMPUTER SCIENCE', 18, 'CS', 'II', '2023-2024', 1, 0),
-(12, 'III BSC COMPUTER SCIENCE T/M', 18, 'CS', 'VI', '2023-2024', 0, 0),
-(13, 'III BSC COMPUTER SCIENCE SHIFT I', 18, 'CS', 'I', '2023-2024', 1, 0),
+(11, 'I MSC COMPUTER SCIENCE', 18, 'CS', 'II', '2023-2024', 0, 0),
+(12, 'III BSC COMPUTER SCIENCE T/M', 30, 'CS', 'VI', '2023-2024', 0, 0),
+(13, 'III BSC COMPUTER SCIENCE SHIFT I', 18, 'CS', 'I', '2023-2024', 0, 0),
 (14, 'III BSC COMPUTER SCIENCE SHIFT II', 18, 'CS', 'VI', '2023-2024', 0, 0);
 
 -- --------------------------------------------------------
@@ -160,7 +166,8 @@ INSERT INTO `staffs` (`id`, `name`, `alias`, `email`, `password`) VALUES
 (21, 'B.DONKEY', 'B.D', 'BD@gmail.com', '123'),
 (22, 'G.VATHANA', 'G.A', 'GA@gmail.com', '123'),
 (28, 'DEVI', 'D', 'D@gmail.com', '123'),
-(29, 'T.BHUVENESHWARI', 'TB', 'TB@gmail.com', '123');
+(29, 'T.BHUVENESHWARI', 'TB', 'TB@gmail.com', '123'),
+(30, 'DEVI.S', 'S.D', 'sdtvkgac@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -184,7 +191,8 @@ CREATE TABLE `staff_attendance` (
 --
 
 INSERT INTO `staff_attendance` (`id`, `class_id`, `attendance_staff_id`, `subject`, `topic`, `date`, `day_order`, `hour`) VALUES
-(1, 9, 18, 'Test', 'Test', '2024-02-03', 'I', '(10:00-10:55)');
+(1, 9, 18, 'Test', 'Test', '2024-02-03', 'I', '(10:00-10:55)'),
+(2, 9, 18, 'pphp', 'design and developp,4nt', '2024-02-06', 'I', '(10:00-10:55)');
 
 -- --------------------------------------------------------
 
@@ -289,13 +297,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `attendance_register`
 --
 ALTER TABLE `attendance_register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -307,13 +315,13 @@ ALTER TABLE `classes`
 -- AUTO_INCREMENT for table `staffs`
 --
 ALTER TABLE `staffs`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `staff_attendance`
 --
 ALTER TABLE `staff_attendance`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `students`
